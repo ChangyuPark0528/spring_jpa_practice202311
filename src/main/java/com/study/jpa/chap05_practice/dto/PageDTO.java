@@ -6,13 +6,13 @@ import lombok.*;
 @ToString @EqualsAndHashCode
 @AllArgsConstructor
 @Builder
-public class pageDTO {
+public class PageDTO {
 
     private int page;
 
     private int size;
 
-    public pageDTO() {
+    public PageDTO() {
         this.page = 1;
         this.size = 10;
     }
