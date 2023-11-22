@@ -10,8 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -25,7 +23,7 @@ class EmployeeRepositoryTest {
     @Autowired
     DepartmentRepository departmentRepository;
 
-//        @BeforeEach
+        @BeforeEach
     void bulkInsert() {
         Department d1 = Department.builder()
                 .name("영업부")
