@@ -5,6 +5,10 @@ import com.study.jpa.chap05_practice.service.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -95,7 +99,12 @@ public class PostApiController {
     }
 
 
-
+    @Operation(summary = "게시물 수정", description = "게시물 수정을 담당하는 매서드 입니다.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "수정 완료!", content = @Content(schema = @Schema(implementation = PostDetailResponseDTO.class))),
+            @ApiResponse(responseCode = "400", description = "입력값 검증 실패"),
+            @ApiResponse(responseCode = "404", description = "NOT FOUND")
+    })
     // 게시물 수정
     @RequestMapping(method = {RequestMethod.PATCH, RequestMethod.PUT})
     public ResponseEntity<?> update(
